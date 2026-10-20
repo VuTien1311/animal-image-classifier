@@ -1,0 +1,48 @@
+{
+  "experiment": "simple_cnn",
+  "model_name": "simple_cnn",
+  "parameters": 4043378,
+  "file_mb": {
+    "fp32": 15.477965354919434,
+    "int8": 3.9608659744262695
+  },
+  "max_abs_logit_diff_vs_torch": 1.8477439880371094e-06,
+  "quantization": {
+    "val_accuracy": {
+      "fp32": {
+        "accuracy": 0.8310362429811128,
+        "macro_f1": 0.8067889832193107
+      },
+      "all ops, min/max": {
+        "accuracy": 0.8182746299132211,
+        "macro_f1": 0.7902305186093201
+      },
+      "all ops, moving average": {
+        "accuracy": 0.8244002041858091,
+        "macro_f1": 0.7980146982697008
+      },
+      "conv/matmul only, min/max": {
+        "accuracy": 0.821337417049515,
+        "macro_f1": 0.7934885428416611
+      },
+      "conv/matmul only, moving average": {
+        "accuracy": 0.8208269525267994,
+        "macro_f1": 0.7948256539914681
+      }
+    },
+    "selected": "all ops, moving average",
+    "val_drop_points": 0.6636038795303723,
+    "shipped": true,
+    "calibration_images": 300
+  },
+  "test": {
+    "fp32": {
+      "accuracy": 0.8264525993883792,
+      "macro_f1": 0.8074402295688303
+    },
+    "int8": {
+      "accuracy": 0.8268348623853211,
+      "macro_f1": 0.8075395983611869
+    }
+  }
+}

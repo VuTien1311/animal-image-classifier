@@ -1,0 +1,22 @@
+# Transfer learning: ResNet-50 pretrained on ImageNet-1k (timm "A1" recipe weights).
+model:
+  name: resnet50.a1_in1k
+  pretrained: true
+  drop_rate: 0.2
+  drop_path_rate: 0.05
+
+data:
+  augment: standard
+  batch_size: 64
+
+optim:
+  name: adamw
+  lr: 5.0e-4
+  weight_decay: 0.05
+  scheduler: cosine
+  warmup_epochs: 1
+
+train:
+  epochs: 10
+  label_smoothing: 0.1
+  early_stopping_patience: 4

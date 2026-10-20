@@ -1,0 +1,100 @@
+{
+  "batch_size": 1,
+  "warmup": 50,
+  "runs": 200,
+  "environment": {
+    "cpu": "AMD Ryzen 7 8845HS w/ Radeon 780M Graphics",
+    "cpu_threads": 8,
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "torch": "2.11.0+cu128",
+    "onnxruntime": "1.31.0"
+  },
+  "models": {
+    "convnext_tiny": {
+      "torch_cpu_fp32": {
+        "median_ms": 39.65129999960482,
+        "p95_ms": 47.208515000966145
+      },
+      "torch_gpu_bf16": {
+        "median_ms": 6.431200000406534,
+        "p95_ms": 7.566179999230371
+      },
+      "onnx_cpu_fp32": {
+        "median_ms": 30.28340000037133,
+        "p95_ms": 33.77325499977814
+      },
+      "onnx_cpu_int8": {
+        "median_ms": 16.78630000060366,
+        "p95_ms": 18.937620000997413
+      }
+    },
+    "efficientnet_b0": {
+      "torch_cpu_fp32": {
+        "median_ms": 12.916950000544603,
+        "p95_ms": 16.163850000884842
+      },
+      "torch_gpu_bf16": {
+        "median_ms": 8.919950000745303,
+        "p95_ms": 10.051089999342365
+      },
+      "onnx_cpu_fp32": {
+        "median_ms": 4.252400000041234,
+        "p95_ms": 5.033314999946015
+      }
+    },
+    "resnet50": {
+      "torch_cpu_fp32": {
+        "median_ms": 34.169000000474625,
+        "p95_ms": 42.26519000103508
+      },
+      "torch_gpu_bf16": {
+        "median_ms": 6.631649999690126,
+        "p95_ms": 7.421484998940285
+      },
+      "onnx_cpu_fp32": {
+        "median_ms": 15.976300000147603,
+        "p95_ms": 18.012860000271754
+      },
+      "onnx_cpu_int8": {
+        "median_ms": 5.304399999658926,
+        "p95_ms": 6.977729999834986
+      }
+    },
+    "simple_cnn": {
+      "torch_cpu_fp32": {
+        "median_ms": 5.393800000092597,
+        "p95_ms": 7.624180000402702
+      },
+      "torch_gpu_bf16": {
+        "median_ms": 1.9916999990527984,
+        "p95_ms": 2.7591999991273015
+      },
+      "onnx_cpu_fp32": {
+        "median_ms": 1.5575500001432374,
+        "p95_ms": 2.7376899987757493
+      },
+      "onnx_cpu_int8": {
+        "median_ms": 1.4831499993306352,
+        "p95_ms": 1.8823099992005143
+      }
+    },
+    "simple_cnn_distill": {
+      "torch_cpu_fp32": {
+        "median_ms": 5.158500000106869,
+        "p95_ms": 7.188134999159956
+      },
+      "torch_gpu_bf16": {
+        "median_ms": 2.101349999975355,
+        "p95_ms": 3.165429998716717
+      },
+      "onnx_cpu_fp32": {
+        "median_ms": 2.2452000002886052,
+        "p95_ms": 2.9023500002040223
+      },
+      "onnx_cpu_int8": {
+        "median_ms": 1.6296499989039148,
+        "p95_ms": 2.4743899997702097
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+# Allow-list: the build context only needs the package, the API and the exported model.
+*
+!pyproject.toml
+!README.md
+!src/
+!app/
+!models/**/*.onnx
+**/__pycache__

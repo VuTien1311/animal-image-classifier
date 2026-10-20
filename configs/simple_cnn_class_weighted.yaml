@@ -1,0 +1,22 @@
+# Ablation of configs/simple_cnn.yaml: identical except for class-weighted cross-entropy
+# (weights proportional to 1/sqrt(class frequency)) to counter the ~3.6x class imbalance.
+model:
+  name: simple_cnn
+  pretrained: false
+  drop_rate: 0.5
+
+data:
+  augment: standard
+  batch_size: 128
+
+optim:
+  name: adamw
+  lr: 1.0e-3
+  weight_decay: 0.05
+  scheduler: cosine
+  warmup_epochs: 2
+
+train:
+  epochs: 30
+  label_smoothing: 0.1
+  class_weighting: sqrt_inverse

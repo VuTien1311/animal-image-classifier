@@ -1,0 +1,43 @@
+{
+  "experiment": "efficientnet_b0",
+  "model_name": "efficientnet_b0.ra_in1k",
+  "parameters": 4020358,
+  "file_mb": {
+    "fp32": 15.778607368469238
+  },
+  "max_abs_logit_diff_vs_torch": 3.814697265625e-06,
+  "quantization": {
+    "val_accuracy": {
+      "fp32": {
+        "accuracy": 0.9811128126595202,
+        "macro_f1": 0.9778046038065895
+      },
+      "all ops, min/max": {
+        "accuracy": 0.7044410413476263,
+        "macro_f1": 0.6572464547974024
+      },
+      "all ops, moving average": {
+        "accuracy": 0.9397651863195507,
+        "macro_f1": 0.929684616237266
+      },
+      "conv/matmul only, min/max": {
+        "accuracy": 0.7253700867789689,
+        "macro_f1": 0.6751162418914968
+      },
+      "conv/matmul only, moving average": {
+        "accuracy": 0.9351710056151098,
+        "macro_f1": 0.9235065349445225
+      }
+    },
+    "selected": "all ops, moving average",
+    "val_drop_points": 4.134762633996947,
+    "shipped": false,
+    "calibration_images": 300
+  },
+  "test": {
+    "fp32": {
+      "accuracy": 0.981460244648318,
+      "macro_f1": 0.9795716064329186
+    }
+  }
+}

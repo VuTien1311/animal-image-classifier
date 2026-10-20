@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Data and training artifacts (large; reproducible from scripts)
+data/
+outputs/
+models/
+dist/
+*.pt
+*.pth
+*.onnx
+*.onnx.data
+*.npz
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.claude/
+
+# Personal interview notes (kept local, not published)
+docs/GIAI_THICH.md

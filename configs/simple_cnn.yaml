@@ -1,0 +1,21 @@
+# Same SimpleCNN architecture as the baseline, modern training recipe:
+# data augmentation + AdamW + warm-up/cosine schedule + label smoothing.
+model:
+  name: simple_cnn
+  pretrained: false
+  drop_rate: 0.5
+
+data:
+  augment: standard
+  batch_size: 128
+
+optim:
+  name: adamw
+  lr: 1.0e-3
+  weight_decay: 0.05
+  scheduler: cosine
+  warmup_epochs: 2
+
+train:
+  epochs: 30
+  label_smoothing: 0.1

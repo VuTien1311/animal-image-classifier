@@ -1,0 +1,26 @@
+# SimpleCNN trained with the same recipe as configs/simple_cnn.yaml, plus knowledge distillation
+# from the fine-tuned ConvNeXt-T teacher. Train convnext_tiny first.
+model:
+  name: simple_cnn
+  pretrained: false
+  drop_rate: 0.5
+
+data:
+  augment: standard
+  batch_size: 128
+
+optim:
+  name: adamw
+  lr: 1.0e-3
+  weight_decay: 0.05
+  scheduler: cosine
+  warmup_epochs: 2
+
+train:
+  epochs: 30
+  label_smoothing: 0.1
+
+distill:
+  teacher_checkpoint: outputs/convnext_tiny/best.pt
+  alpha: 0.7
+  temperature: 4.0

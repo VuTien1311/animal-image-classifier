@@ -1,0 +1,21 @@
+# Baseline recipe for the from-scratch SimpleCNN: no augmentation, SGD with a constant learning
+# rate, no label smoothing. configs/simple_cnn.yaml changes only the recipe, not the model.
+model:
+  name: simple_cnn
+  pretrained: false
+  drop_rate: 0.5
+
+data:
+  augment: none
+  batch_size: 128
+
+optim:
+  name: sgd
+  lr: 1.0e-3
+  momentum: 0.9
+  weight_decay: 0.0
+  scheduler: constant
+  warmup_epochs: 0
+
+train:
+  epochs: 30

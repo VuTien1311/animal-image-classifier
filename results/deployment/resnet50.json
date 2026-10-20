@@ -1,0 +1,48 @@
+{
+  "experiment": "resnet50",
+  "model_name": "resnet50.a1_in1k",
+  "parameters": 23528522,
+  "file_mb": {
+    "fp32": 89.87201309204102,
+    "int8": 23.030447006225586
+  },
+  "max_abs_logit_diff_vs_torch": 1.6689300537109375e-06,
+  "quantization": {
+    "val_accuracy": {
+      "fp32": {
+        "accuracy": 0.9867279224093926,
+        "macro_f1": 0.9833191683909355
+      },
+      "all ops, min/max": {
+        "accuracy": 0.9872383869321082,
+        "macro_f1": 0.9844102589791206
+      },
+      "all ops, moving average": {
+        "accuracy": 0.9851965288412455,
+        "macro_f1": 0.9813286809196651
+      },
+      "conv/matmul only, min/max": {
+        "accuracy": 0.9846860643185299,
+        "macro_f1": 0.981142041295876
+      },
+      "conv/matmul only, moving average": {
+        "accuracy": 0.9846860643185299,
+        "macro_f1": 0.980282256551129
+      }
+    },
+    "selected": "all ops, min/max",
+    "val_drop_points": -0.05104645227156368,
+    "shipped": true,
+    "calibration_images": 300
+  },
+  "test": {
+    "fp32": {
+      "accuracy": 0.9837538226299695,
+      "macro_f1": 0.9823979581256411
+    },
+    "int8": {
+      "accuracy": 0.981460244648318,
+      "macro_f1": 0.9798804718968599
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# Transfer learning: ConvNeXt-Tiny pretrained on ImageNet-22k, fine-tuned on ImageNet-1k.
+# Also serves as the teacher for configs/simple_cnn_distill.yaml.
+model:
+  name: convnext_tiny.fb_in22k_ft_in1k
+  pretrained: true
+  drop_rate: 0.2
+  drop_path_rate: 0.1
+
+data:
+  augment: standard
+  batch_size: 64
+
+optim:
+  name: adamw
+  lr: 2.0e-4
+  weight_decay: 0.05
+  scheduler: cosine
+  warmup_epochs: 1
+
+train:
+  epochs: 10
+  label_smoothing: 0.1
+  early_stopping_patience: 4

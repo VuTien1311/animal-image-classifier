@@ -1,0 +1,13 @@
+{
+  "models": [
+    "outputs/convnext_tiny/test_predictions.npz"
+  ],
+  "test_images": 5232,
+  "errors": 75,
+  "accuracy": 0.9856651376146789,
+  "suspected_label_issues": 26,
+  "criteria": {
+    "max_label_prob": 0.05,
+    "min_confidence": 0.9
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "experiment": "clip_zero_shot",
+  "model_name": "ViT-L-14-quickgelu (dfn2b)",
+  "split": "test",
+  "num_images": 5232,
+  "parameters": 303966208,
+  "templates": [
+    "a photo of a {}.",
+    "a close-up photo of a {}.",
+    "a blurry photo of a {}.",
+    "a low resolution photo of a {}.",
+    "a cropped photo of a {}.",
+    "a photo of the {}, a type of animal.",
+    "a drawing of a {}.",
+    "a cartoon {}."
+  ],
+  "accuracy": 0.9906345565749235,
+  "balanced_accuracy": 0.9900906236400567,
+  "macro_f1": 0.9892994875641004,
+  "weighted_f1": 0.9906225425036977,
+  "per_class": {
+    "butterfly": {
+      "precision": 0.9882352941176471,
+      "recall": 0.995260663507109,
+      "f1": 0.9917355371900827,
+      "support": 422
+    },
+    "cat": {
+      "precision": 0.9850746268656716,
+      "recall": 0.990990990990991,
+      "f1": 0.9880239520958084,
+      "support": 333
+    },
+    "chicken": {
+      "precision": 0.9951456310679612,
+      "recall": 0.9935379644588045,
+      "f1": 0.994341147938561,
+      "support": 619
+    },
+    "cow": {
+      "precision": 0.9836065573770492,
+      "recall": 0.9651474530831099,
+      "f1": 0.9742895805142084,
+      "support": 373
+    },
+    "dog": {
+      "precision": 0.9937759336099585,
+      "recall": 0.98559670781893,
+      "f1": 0.9896694214876033,
+      "support": 972
+    },
+    "elephant": {
+      "precision": 0.9829931972789115,
+      "recall": 1.0,
+      "f1": 0.9914236706689536,
+      "support": 289
+    },
+    "horse": {
+      "precision": 0.9924098671726755,
+      "recall": 0.9980916030534351,
+      "f1": 0.9952426260704091,
+      "support": 524
+    },
+    "sheep": {
+      "precision": 0.9780821917808219,
+      "recall": 0.9807692307692307,
+      "f1": 0.9794238683127572,
+      "support": 364
+    },
+    "spider": {
+      "precision": 0.9968879668049793,
+      "recall": 0.9968879668049793,
+      "f1": 0.9968879668049793,
+      "support": 964
+    },
+    "squirrel": {
+      "precision": 0.9893048128342246,
+      "recall": 0.9946236559139785,
+      "f1": 0.9919571045576407,
+      "support": 372
+    }
+  },
+  "top_confusions": [
+    {
+      "true": "cow",
+      "predicted": "sheep",
+      "count": 6
+    },
+    {
+      "true": "sheep",
+      "predicted": "cow",
+      "count": 4
+    },
+    {
+      "true": "dog",
+      "predicted": "cat",
+      "count": 4
+    },
+    {
+      "true": "cow",
+      "predicted": "horse",
+      "count": 3
+    },
+    {
+      "true": "chicken",
+      "predicted": "squirrel",
+      "count": 2
+    }
+  ],
+  "confusion_matrix": [
+    [
+      420,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      330,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      615,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      1,
+      1,
+      360,
+      1,
+      1,
+      3,
+      6,
+      0,
+      0
+    ],
+    [
+      1,
+      4,
+      2,
+      0,
+      958,
+      1,
+      0,
+      2,
+      2,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      289,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      523,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      4,
+      2,
+      0,
+      1,
+      357,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      961,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      370
+    ]
+  ]
+}

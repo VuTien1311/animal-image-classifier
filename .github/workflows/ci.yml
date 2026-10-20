@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Install (CPU-only PyTorch)
+        run: |
+          pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          pip install -e ".[train,serve,dev]"
+      - name: Lint
+        run: |
+          ruff check .
+          ruff format --check .
+      - name: Test
+        run: pytest
+
+  docker:
+    # Builds the serving image with an untrained model and checks that the API answers.
+    needs: lint-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Export a placeholder ONNX model
+        run: |
+          pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          pip install -e ".[train]"
+          python -c "
+          from animal_classifier.export import export_onnx
+          from animal_classifier.models import create_model
+          export_onnx(create_model('simple_cnn', 10), 'models/ci/model.onnx', [f'class_{i}' for i in range(10)], 'simple_cnn')
+          "
+      - name: Build image
+        run: docker build --build-arg MODEL=models/ci/model.onnx -t animal-classifier:ci .
+      - name: Smoke-test the container
+        run: |
+          docker run -d -p 8000:8000 --name api animal-classifier:ci
+          for i in $(seq 1 30); do curl -sf localhost:8000/health && break; sleep 1; done
+          python -c "from PIL import Image; Image.new('RGB', (320, 240), 'orange').save('probe.jpg')"
+          curl -sf -F "file=@probe.jpg" "localhost:8000/predict?top_k=3"
+      - name: Container logs
+        if: always()
+        run: docker logs api || true

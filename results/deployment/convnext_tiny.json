@@ -1,0 +1,48 @@
+{
+  "experiment": "convnext_tiny",
+  "model_name": "convnext_tiny.fb_in22k_ft_in1k",
+  "parameters": 27827818,
+  "file_mb": {
+    "fp32": 106.80812549591064,
+    "int8": 27.093174934387207
+  },
+  "max_abs_logit_diff_vs_torch": 2.384185791015625e-06,
+  "quantization": {
+    "val_accuracy": {
+      "fp32": {
+        "accuracy": 0.9933639612046963,
+        "macro_f1": 0.9915350069713009
+      },
+      "all ops, min/max": {
+        "accuracy": 0.9831546707503829,
+        "macro_f1": 0.9798443353953872
+      },
+      "all ops, moving average": {
+        "accuracy": 0.9872383869321082,
+        "macro_f1": 0.9853295854845487
+      },
+      "conv/matmul only, min/max": {
+        "accuracy": 0.9933639612046963,
+        "macro_f1": 0.9919480791204094
+      },
+      "conv/matmul only, moving average": {
+        "accuracy": 0.9923430321592649,
+        "macro_f1": 0.9903777070814879
+      }
+    },
+    "selected": "conv/matmul only, min/max",
+    "val_drop_points": 0.0,
+    "shipped": true,
+    "calibration_images": 300
+  },
+  "test": {
+    "fp32": {
+      "accuracy": 0.9858562691131498,
+      "macro_f1": 0.9840845390449084
+    },
+    "int8": {
+      "accuracy": 0.9858562691131498,
+      "macro_f1": 0.9840903269082226
+    }
+  }
+}
